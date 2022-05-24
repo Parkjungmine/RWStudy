@@ -115,6 +115,7 @@ const canvas = document.
 
    
     let animationId
+    let score = 0
 
     function animate() {
         animationId = requestAnimationFrame(animate)
@@ -153,13 +154,24 @@ const canvas = document.
                     if (dist - enemy.radius - projectile.radius < 1)
                     {
 
+                        
+
                         if (enemy.radius - 10 > 10) {
+
+                            // score
+                        score += 100
+                        scoreEl.innerHTML = score
+                        console.log(score)
                             enemy.radius -= 10
                             setTimeout(() => {
                                 projectile.splice(projectileIndex , 1)
                             }, 0)
 
                         } else {
+                            // removescore
+                        score += 250
+                        scoreEl.innerHTML = score
+                        console.log(score)
                         setTimeout(() => {
                             enemies.splice(index, 1)
                             projectile.splice(projectileIndex , 1)
